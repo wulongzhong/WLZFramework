@@ -1,0 +1,91 @@
+syntax = "proto3";
+package Msg;
+
+//玩家本地缓存枚举
+enum PlayerLocalCheType{
+    None = 0;
+    ShowJoyStick = 1;
+    EnableShake = 2;
+    EnableMusic = 3;
+    EnableSound = 4;
+}
+
+
+message PbVec2{
+    float x = 1;
+    float y = 2;
+}
+
+message PbVec2Int{
+    int32 x = 1;
+    int32 y = 2;
+}
+
+message PbVec3{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message PbVec3Int{
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+}
+
+message Key2Bool{
+    PlayerLocalCheType k = 1;
+    bool v = 2;
+}
+
+message Key2Int{
+    PlayerLocalCheType k = 1;
+    int32 v = 2;
+}
+
+message Key2Long{
+    PlayerLocalCheType k = 1;
+    int64 v = 2;
+}
+
+message Key2Float{
+    PlayerLocalCheType k = 1;
+    float v = 2;
+}
+
+message Key2String{
+    PlayerLocalCheType k = 1;
+    string v = 2;
+}
+
+message Key2Vec2{
+    PlayerLocalCheType k = 1;
+    PbVec2 v = 2;
+}
+
+message Key2Vec2Int{
+    PlayerLocalCheType k = 1;
+    PbVec2Int v = 2;
+}
+
+message Key2Vec3{
+    PlayerLocalCheType k = 1;
+    PbVec3 v = 2;
+}
+
+message Key2Vec3Int{
+    PlayerLocalCheType k = 1;
+    PbVec3Int v = 2;
+}
+
+message PlayerLocalCache{
+    repeated Key2Bool lstBool = 1;
+    repeated Key2Int lstInt = 2;
+    repeated Key2Long lstLong = 3;
+    repeated Key2Float lstFloat = 4;
+    repeated Key2String lstString = 5;
+    repeated Key2Vec2 lstVec2 = 6;
+    repeated Key2Vec2Int lstVec2Int = 7;
+    repeated Key2Vec3 lstVec3 = 8;
+    repeated Key2Vec3Int lstVec3Int = 9;
+}

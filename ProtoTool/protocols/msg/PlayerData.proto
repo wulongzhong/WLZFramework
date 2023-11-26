@@ -1,0 +1,175 @@
+syntax = "proto3";
+package Msg;
+
+message UnlockedHeroInfo{
+    int64 heroId = 1;//英雄ID
+    int64 heroStar = 2;//英雄等级
+    repeated int64 listOwnedSkin = 3;//拥有的皮肤
+}
+
+message OwnedPetEggInfo{
+    int64 petEggId = 1;//宠物蛋类型
+    int64 petEggCount = 2;//宠物蛋数量
+}
+
+message UnlockedPetInfo{
+    int64 petId = 1;//宠物ID
+    int64 petLevel = 2;//宠物等级
+}
+
+message NormalData{
+    int64 blueCoinCount = 1;//蓝币数量
+    int64 diamondCount = 2;//钻石数量
+    repeated OwnedPetEggInfo listOwnedpetEggInfo = 3;//宠物蛋数量
+    bool isNoAds = 4;//是否免广告
+    repeated int64 listUnlockTalent = 5;//解锁的天赋
+    repeated UnlockedHeroInfo listUnlockedHeroInfo = 6;//已解锁的英雄信息
+    repeated UnlockedPetInfo listUnlockedPetInfo = 7;//已解锁的宠物信息
+    int64 currSelectPetId = 8;//选择的宠物ID
+    bool isFinishGuide = 9;
+    bool isFinishGuide2 = 10;
+
+    int64 dailyCheckInCount = 11;//每日签到天数
+    int64 nextDailyCheckInTime = 12;//下一次每日签到天数
+
+    int64 adRevivalHeroCount = 13;
+    int64 adSettlementDoubleCount = 14;
+    int64 adOpenedPetEgg1Count = 15;
+    int64 adOpenedPetEgg2Count = 16;
+    int64 adOpenedPetEgg3Count = 17;
+    int64 lastRefreshAdCountTime = 18;//上一次刷新广告次数时间
+
+    int64 lastGetMonth1RewardTime = 19;//上一次领取普通月卡奖励时间
+    int64 lastGetMonth2RewardTime = 20;//上一次领取高级月卡奖励时间
+    int64 lastViewMonthCardTime = 21;//上一次主动弹出月卡UI时间
+    int64 lastViewLimitedTimeGiftPackTime = 22;//上一次展示限时礼包时间
+    int64 lastViewLimitedTimeLevel = 23;//上一次展示的限时礼包等级
+    float rechargedAmount = 24;//已充值金额
+    int64 continuousFailureCount = 25;//连续失败次数
+
+    bool bPlayFirstLevelBattle = 26;//是否游玩了第一次战斗
+
+    int64 normalMonthCardStartTime = 27;
+    int64 superMonthCardStartTime = 28;
+
+    bool getedReservationRewards = 29;//是否已领取过了预约奖励
+
+    int64 resurrectionCoinCount = 33;//复活币数量
+}
+
+message HallData{
+    int64 norVendingNowStock        = 1;//普通售卖机当前库存
+    int64 norVendingRestockTime     = 2;//普通售卖机补货时间
+    int64 norVendingGoodItemCD      = 3;//普通售卖机好东西CD
+    int64 enchatVendingNowStock     = 4;//附魔售卖机当前库存
+    int64 enchantVendingRestockTime = 5;//附魔售卖机补货时间
+    int64 lastOpenHallTreasureTime  = 6;//上一次开启大厅宝箱时间
+}
+
+message LevelMapPassInfo{
+    int64 mapId = 1;
+    int64 passTime = 2;
+}
+
+message LevelMapPassData{
+    repeated LevelMapPassInfo listMapPassInfo = 1;
+}
+
+message LevelMapBattleData{
+    int64 mapId = 1;//地图id
+    int64 randomSeed = 2;//随机种子
+    int64 currLevelNum = 3;//当前关卡号
+    int64 currRoomType = 4;//当前关卡类型
+    int64 currHeroLevel = 5;//当前玩家等级
+    int64 currGoldCount = 6;//当前金币数量
+    int64 currExpCount = 7;//当前经验数量
+    repeated int64 currEquipments = 8;//当前拥有的装备
+    repeated int64 currAbilitys = 9;//当前拥有的能力
+    repeated int64 extraBuffs = 10;//额外的buff
+    int64 bigTurntableTimes = 11;//大转盘旋转的次数
+    int64 storeRefreshCount = 12;//商店刷新的次数
+    int64 killNormalMobCount = 13;//击杀普通怪物数量
+    int64 killElitMobcount = 14;//击杀精英怪物数量
+    int64 quitCount = 15;//用户退出次数 退出过一次之后再退出不可重新进入挑战
+    bool bIsRevived = 16;//是否复活过了
+    int64 storeFreeRefreshCount = 17;//商店免费刷新使用的次数
+}
+
+
+message EndlessMapBattleData{
+    int64 areaId = 1;//区域id
+    int64 randomSeed = 2;//随机种子
+    int64 currHeroLevel = 3;//当前玩家等级
+    int64 currExpCount = 4;//当前经验数量
+    repeated int64 currEquipments = 5;//当前拥有的装备
+    repeated int64 currAbilitys = 6;//当前拥有的能力
+    repeated int64 extraBuffs = 7;//额外的buff
+    int64 killNormalMobCount = 8;//击杀普通怪物数量
+    int64 killElitMobcount = 9;//击杀精英怪物数量
+    bool bIsRevived = 10;//是否复活过了
+}
+
+message LimitedItemGetInfo{
+    int64 itemId = 1;//道具id
+    int64 getTime = 2;//获得的时间
+}
+
+message LimitedItemGetData{
+    repeated LimitedItemGetInfo listInfo = 1;
+}
+
+message EndlessMapLeaderboardAreaInfo{
+    int32 areaId = 1;//区域id
+    int32 areaRandomSeed = 2;//区域随机种子 用于随机当日的假玩家信息，假分数，假排名
+    int32 playerRanking = 3;//玩家排名
+    int32 playerMaxFraction = 4;//玩家最高分数
+}
+
+message EndlessMapLeaderboardData{
+    repeated EndlessMapLeaderboardAreaInfo listAreaInfo = 1;//各区域的排名信息
+}
+
+message TaskLogInfo{
+    int64 KillNorMobCount = 1;//击杀普通怪物数量
+    int64 KillEliteMobCount = 2;//击杀精英怪物数量
+    int64 NorVendingBuyCount = 3;//普通售卖机处购买次数
+    int64 MagicVendingBuyCount = 4;//魔法售卖机处购买次数
+    int64 PassedMaxLevel = 5;//挑战过了的最高关卡
+    repeated int64 PassedMapIds = 6;//通关过了的地图id
+    repeated int64 PassedIn20MinMapIds = 7;//在20分钟内通关过了的地图id
+    int64 HeroUpStarCount = 8;//英雄升星次数
+    int64 OpenPetEggCount = 9;//开启宠物蛋的次数
+    int64 TalentUnlockCount = 10;//解锁天赋的次数
+    repeated int64 GetRewardTaskId = 11;//领取过了奖励的任务ID
+    repeated int64 GetVipRewardTaskId = 12;//领取过了Vip奖励的任务ID
+    int64 endTime = 13;//本次结束时间
+}
+
+message TaskLogData{
+    TaskLogInfo DailyLogInfo = 1;
+    TaskLogInfo WeeklyLogInfo = 2;
+    TaskLogInfo AchievementInfo = 3;
+}
+
+enum GuideType
+{
+    None = 0;
+    Max = 11;//最大标记
+}
+message GuideData
+{
+    repeated GuideType listFinishGuide = 1;
+}
+
+message PlayerData{
+    int64 userId = 1;
+    string userDeviceId = 2;
+    NormalData normalData = 3;
+    GuideData guideData = 4;
+    LevelMapPassData levelMapPassData = 5;
+    LevelMapBattleData levelMapBattleData = 6;
+    HallData hallData = 7;
+    LimitedItemGetData limitedItemGetData = 8;
+    TaskLogData taskLogData = 9;
+    EndlessMapLeaderboardData endlessMapLeaderboardData = 10;
+}
