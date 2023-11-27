@@ -92,8 +92,9 @@ public partial class DTLocalization
         {
 #if UNITY_EDITOR
             return $"Not Config {localizationModuleType}:{key}";
-#endif
+#else
             return "";
+#endif
         }
         return v;
     }

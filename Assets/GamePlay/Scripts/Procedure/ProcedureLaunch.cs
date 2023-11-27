@@ -7,6 +7,7 @@ public class ProcedureLaunch : ProcedureBase
     public override void OnEnter()
     {
         base.OnEnter();
+        Splash.Instance.RefreshProgress(1);
     }
 
     public override void OnExit()
@@ -16,6 +17,7 @@ public class ProcedureLaunch : ProcedureBase
 
     public void Update()
     {
+        Splash.Instance.RefreshProgress(2);
         this.ProcedureMgr.ChangeProcedure<ProcedureLoadDataTable>();
     }
 }

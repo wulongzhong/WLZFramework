@@ -14,8 +14,9 @@ public class UIMgr : MonoBehaviour
         dicUI = new Dictionary<string, UIBase>();
     }
 
-    public UIBase OpenUI(string uiName)
+    public UIBase OpenUI<T>() where T : UIBase
     {
+        string uiName = typeof(T).Name;
         if (dicUI.ContainsKey(uiName) && dicUI[uiName].gameObject.activeSelf)
         {
             Debug.LogError($"UI:{uiName}已开启");
@@ -33,12 +34,29 @@ public class UIMgr : MonoBehaviour
         return uiBase;
     }
 
-    public void CloseUI(string uiName)
+    public void CloseUI<T>() where T : UIBase
     {
+        string uiName = typeof(T).Name;
         if (!dicUI.ContainsKey(uiName))
         {
             Debug.LogError($"未找到该UI:{uiName}");
         }
         dicUI[uiName].OnClose();
+    }
+
+    public T FindUI<T>() where T : UIBase
+    {
+        string uiName = typeof(T).Name;
+        if (dicUI.ContainsKey(uiName))
+        {
+            return (T)dicUI[uiName];
+        }
+        return null;
+    }
+
+    public bool IsShow(string uiName)
+    {
+
+        return false;
     }
 }
