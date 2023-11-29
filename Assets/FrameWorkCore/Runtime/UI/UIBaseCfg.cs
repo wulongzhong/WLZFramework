@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class UISortInfo
+public class UIBaseCfg
 {
     public enum SortLayer
     {
@@ -15,4 +15,6 @@ public class UISortInfo
     [ReadOnly]
     public string uiName;
     public SortLayer sortLayer;
+    [ReadOnly]
+    public string prefabPath;
 }

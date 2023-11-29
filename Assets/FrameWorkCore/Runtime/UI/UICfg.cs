@@ -7,8 +7,7 @@ public class UICfg : ScriptableObject
 {
     public string uiPrefabRootPath;
     public string uiCodeRootPath;
-    [HideInInspector]
-    public List<UISortInfo> listSortInfo;
+    public List<UIBaseCfg> listSortInfo;
 
     public static void Create()
     {
