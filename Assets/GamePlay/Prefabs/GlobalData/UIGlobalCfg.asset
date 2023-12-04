@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 816f82ebc47873a48a0f1cd4e0aa2550, type: 3}
-  m_Name: UICfg
+  m_Name: UIGlobalCfg
   m_EditorClassIdentifier: 
   uiPrefabRootPath: Assets/GamePlay/Prefabs/UI
   uiCodeRootPath: Assets/GamePlay/Scripts/UI
-  listSortInfo:
-  - uiName: 
-    sortLayer: 100
-  - uiName: 
-    sortLayer: 200
+  listSortInfo: []

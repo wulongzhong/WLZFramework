@@ -1,6 +1,4 @@
-using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +11,34 @@ public class UIBase : MonoBehaviour
     }
     private Animator animator;
     private GraphicRaycaster raycaster;
-
+    [HideInInspector]
     public ResLoader resLoader;
+
+    [Header("本地化模块类型")]
+    public ConfigPB.LocalizationModuleType localizationModuleType;
+    [Header("默认按钮音效ID")]
+    public int btnDefaultClickSoundId = 114;
+
+    [Space]
+    [Header("此处往下为自动生成，勿手动编辑")]
+    [Space]
+
+    public TextMeshProUGUI[] arrStaticLocalizationText;
+    public Button[] arrPlaySoundBtn;
+    public int[] arrBtnSoundId;
+
+    /// <summary>
+    /// 是否在播放开启动画中
+    /// </summary>
+    public bool BPlayingOpenAnimation {  get; set; }
+    /// <summary>
+    /// 是否在播放关闭动画中
+    /// </summary>
+    public bool BPlayingCloseAnimation { get; set; }
+    /// <summary>
+    /// 动画结束时间 公用
+    /// </summary>
+    public float AnimationEndTime { get; set; }
 
     private void Awake()
     {
@@ -27,36 +51,46 @@ public class UIBase : MonoBehaviour
     {
     }
 
-    public virtual async void OnOpen()
+    public virtual void OnOpen(object userData)
     {
+        BPlayingOpenAnimation = false;
         if (animator != null)
         {
             if (animator.HasState(0, Animator.StringToHash(UIBaseAniType.Open.ToString())))
             {
                 raycaster.enabled = false;
                 animator.Play(UIBaseAniType.Open.ToString());
-                await UniTask.Delay(Mathf.RoundToInt(animator.GetCurrentAnimatorStateInfo(0).length * 1000));
+                BPlayingOpenAnimation = true;
+                AnimationEndTime = Time.time + animator.GetCurrentAnimatorStateInfo(0).length;
             }
         }
         raycaster.enabled = true;
     }
 
-    public virtual void OnUpdate()
+    public virtual void OnOpenAnimationEnd()
     {
-
+        raycaster.enabled = true;
+        BPlayingOpenAnimation = false;
     }
 
-    public virtual async void OnClose(bool bRecycle = true)
+    public virtual void OnClose(bool bRecycle = true)
     {
+        BPlayingCloseAnimation = false;
         raycaster.enabled = false;
         if (animator != null)
         {
             if (animator.HasState(0, Animator.StringToHash(UIBaseAniType.Close.ToString())))
             {
                 animator.Play(UIBaseAniType.Close.ToString());
-                await UniTask.Delay(Mathf.RoundToInt(animator.GetCurrentAnimatorStateInfo(0).length * 1000));
+                BPlayingCloseAnimation = true;
+                AnimationEndTime = Time.time + animator.GetCurrentAnimatorStateInfo(0).length;
             }
         }
+    }
+
+    public virtual void OnCloseAnimationEnd(bool bRecycle = true)
+    {
+        BPlayingCloseAnimation = false;
         if (!bRecycle)
         {
             OnRealDestory();
@@ -68,5 +102,17 @@ public class UIBase : MonoBehaviour
         Destroy(gameObject);
         resLoader.Dispose();
         resLoader = null;
+    }
+
+    protected virtual void OnUpdate()
+    {
+        if (BPlayingOpenAnimation && Time.time > AnimationEndTime)
+        {
+            OnOpenAnimationEnd();
+        }
+        if (BPlayingCloseAnimation && Time.time > AnimationEndTime)
+        {
+            OnCloseAnimationEnd();
+        }
     }
 }

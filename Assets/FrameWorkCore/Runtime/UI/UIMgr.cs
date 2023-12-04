@@ -14,7 +14,7 @@ public class UIMgr : MonoBehaviour
         dicUI = new Dictionary<string, UIBase>();
     }
 
-    public UIBase OpenUI<T>() where T : UIBase
+    public UIBase OpenUI<T>(object userData) where T : UIBase
     {
         string uiName = typeof(T).Name;
         if (dicUI.ContainsKey(uiName) && dicUI[uiName].gameObject.activeSelf)
@@ -29,7 +29,7 @@ public class UIMgr : MonoBehaviour
         var go = Instantiate(prefab, this.transform);
         var uiBase = go.GetComponent<UIBase>();
         uiBase.resLoader = resLoader;
-        uiBase.OnOpen();
+        uiBase.OnOpen(userData);
         dicUI.Add(uiName, uiBase);
         return uiBase;
     }
