@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonSpecialClickSound : MonoBehaviour
 {
-    [Header("ÓÃÓÚ²¥·Å·ÇÄ¬ÈÏÒôĞ§ ÒôĞ§id -1Ä¬ÈÏÒôĞ§ 0Îª²»²¥·ÅÒôĞ§ ´óÓÚ0Î´×Ô¶¨ÒåÒôĞ§")]
-    public int soundId = -1;
+    [Header("ç”¨äºæ’­æ”¾éé»˜è®¤éŸ³æ•ˆ éŸ³æ•ˆid defaulté»˜è®¤éŸ³æ•ˆ noneä¸ºä¸æ’­æ”¾éŸ³æ•ˆ å…¶å®ƒä¸ºè‡ªå®šä¹‰éŸ³æ•ˆ")]
+    public string soundId = "default";
 }

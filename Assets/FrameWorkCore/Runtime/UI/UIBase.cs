@@ -19,7 +19,7 @@ public class UIBase : MonoBehaviour
     [Header("本地化模块类型")]
     public ConfigPB.LocalizationModuleType localizationModuleType;
     [Header("默认按钮音效ID")]
-    public int btnDefaultClickSoundId = 114;
+    public string btnDefaultClickSoundId = "button_click";
 
     [Space]
     [Header("此处往下为自动生成，勿手动编辑")]
@@ -27,7 +27,7 @@ public class UIBase : MonoBehaviour
 
     public TextMeshProUGUI[] arrStaticLocalizationText;
     public Button[] arrPlaySoundBtn;
-    public int[] arrBtnSoundId;
+    public string[] arrBtnSoundId;
 
     /// <summary>
     /// 是否在播放开启动画中
@@ -46,14 +46,32 @@ public class UIBase : MonoBehaviour
 
     private void Awake()
     {
-        canvas = GetComponent<Canvas>();
-        animator = GetComponent<Animator>();
-        raycaster = GetComponent<GraphicRaycaster>();
         OnInit();
     }
 
     public virtual void OnInit()
     {
+        canvas = GetComponent<Canvas>();
+        animator = GetComponent<Animator>();
+        raycaster = GetComponent<GraphicRaycaster>();
+        foreach(var text in arrStaticLocalizationText)
+        {
+            text.text = DTLocalization.Instance.GetString(localizationModuleType, text.text);
+        }
+
+        if (arrPlaySoundBtn != null && arrPlaySoundBtn.Length > 0)
+        {
+            for (int i = 0; i < arrPlaySoundBtn.Length; ++i)
+            {
+                int tempIndex = i;
+                var soundId = arrBtnSoundId[tempIndex];
+                if (soundId.Equals("default"))
+                {
+                    soundId = btnDefaultClickSoundId;
+                }
+                arrPlaySoundBtn[tempIndex].onClick.AddListener(() => { SoundMgr.Instance.PlaySound(soundId); });
+            }
+        }
     }
 
     public virtual void OnOpen(object userData)

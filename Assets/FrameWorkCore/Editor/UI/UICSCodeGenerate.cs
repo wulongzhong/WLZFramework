@@ -34,7 +34,7 @@ public class UICSCodeGenerate
         Dictionary<string, UnityEngine.Object> dicMember2Object = new Dictionary<string, UnityEngine.Object>();
         Dictionary<string, Dictionary<string, UnityEngine.Object>> dicCombi2Object = new Dictionary<string, Dictionary<string, UnityEngine.Object>>();
         List<TMPro.TextMeshProUGUI> listStaticLocalizationText = new List<TMPro.TextMeshProUGUI>();
-        Dictionary<Button, int> dicBtnClickSoundId = new();
+        Dictionary<Button, string> dicBtnClickSoundId = new();
         CollectMarkGB(dicMember2Object, dicCombi2Object, targetGB, listStaticLocalizationText, dicBtnClickSoundId, false);
         bool bFirstCreate = true;
         if (Directory.Exists(UIGlobalCfg.Instance.uiCodeRootPath))
@@ -219,17 +219,17 @@ public class UICSCodeGenerate
         targetGB = UnityEngine.GameObject.Instantiate(targetGB);
         targetGB.name = name;
         int modeTypeIndex = 0;
-        int btnDefaultClickSoundId = 0;
+        string btnDefaultClickSoundId = "";
         if (targetGB.GetComponent<UIBase>() != null)
         {
             modeTypeIndex = (int)targetGB.GetComponent<UIBase>().localizationModuleType;
-            btnDefaultClickSoundId = (int)targetGB.GetComponent<UIBase>().btnDefaultClickSoundId;
+            btnDefaultClickSoundId = targetGB.GetComponent<UIBase>().btnDefaultClickSoundId;
             GameObject.DestroyImmediate(targetGB.GetComponent<UIBase>());
         }
 
         Dictionary<string, UnityEngine.Object> dicMember2Object = new Dictionary<string, UnityEngine.Object>();
         Dictionary<string, Dictionary<string, UnityEngine.Object>> dicCombi2Object = new Dictionary<string, Dictionary<string, UnityEngine.Object>>();
-        Dictionary<Button, int> dicBtnClickSoundId = new();
+        Dictionary<Button, string> dicBtnClickSoundId = new();
         List<TMPro.TextMeshProUGUI> listStaticLocalizationText = new List<TMPro.TextMeshProUGUI>();
         CollectMarkGB(dicMember2Object, dicCombi2Object, targetGB, listStaticLocalizationText, dicBtnClickSoundId, true);
 
@@ -265,7 +265,7 @@ public class UICSCodeGenerate
             foreach (var kv in dicBtnClickSoundId)
             {
                 arrPlaySoundBtnProperty.GetArrayElementAtIndex(tempIndex).objectReferenceValue = kv.Key;
-                arrBtnSoundIdProperty.GetArrayElementAtIndex(tempIndex).intValue = kv.Value;
+                arrBtnSoundIdProperty.GetArrayElementAtIndex(tempIndex).stringValue = kv.Value;
                 ++tempIndex;
             }
         }
@@ -283,7 +283,7 @@ public class UICSCodeGenerate
             serializedObject.FindProperty(kv.Key).objectReferenceValue = kv.Value;
         }
         serializedObject.FindProperty("localizationModuleType").enumValueIndex = modeTypeIndex;
-        serializedObject.FindProperty("btnDefaultClickSoundId").intValue = btnDefaultClickSoundId;
+        serializedObject.FindProperty("btnDefaultClickSoundId").stringValue = btnDefaultClickSoundId;
         serializedObject.ApplyModifiedProperties();
 
         var gb = PrefabUtility.SaveAsPrefabAsset(targetGB, Path.Combine(uiRootMark.prefabFolderPath, $"{targetGB.name}.prefab"));
@@ -293,7 +293,7 @@ public class UICSCodeGenerate
         GameObject.DestroyImmediate(targetGB);
     }
 
-    public static void CollectMarkGB(Dictionary<string, UnityEngine.Object> dicMember2Object, Dictionary<string, Dictionary<string, UnityEngine.Object>> dicCombi2Object, GameObject targetGB, List<TMPro.TextMeshProUGUI> listStaticLocalizationText, Dictionary<Button, int> dicBtnSoundId, bool bUnpackPrefab)
+    public static void CollectMarkGB(Dictionary<string, UnityEngine.Object> dicMember2Object, Dictionary<string, Dictionary<string, UnityEngine.Object>> dicCombi2Object, GameObject targetGB, List<TMPro.TextMeshProUGUI> listStaticLocalizationText, Dictionary<Button, string> dicBtnSoundId, bool bUnpackPrefab)
     {
         List<GameObject> listMemberCheckGB = new List<GameObject>(256);
         listMemberCheckGB.Add(targetGB);
@@ -324,14 +324,14 @@ public class UICSCodeGenerate
                 ButtonSpecialClickSound buttonSpecialClickSound = check.GetComponent<ButtonSpecialClickSound>();
                 if (buttonSpecialClickSound != null)
                 {
-                    if (buttonSpecialClickSound.soundId > 0)
+                    if (!string.IsNullOrEmpty(buttonSpecialClickSound.soundId))
                     {
                         dicBtnSoundId.Add(btn, buttonSpecialClickSound.soundId);
                     }
                 }
                 else
                 {
-                    dicBtnSoundId.Add(btn, 0);
+                    dicBtnSoundId.Add(btn, "default");
                 }
             }
 
