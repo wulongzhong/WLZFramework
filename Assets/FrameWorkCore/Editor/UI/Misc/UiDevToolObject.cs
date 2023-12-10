@@ -17,7 +17,6 @@ public class UiDevToolObject : ScriptableObject
     {
         if (instance == null)
         {
-            var assets = AssetDatabase.FindAssets("t:UiDevToolObject");
             instance = AssetDatabase.LoadAssetAtPath<UiDevToolObject>(AssetDatabase.GUIDToAssetPath(AssetDatabase.FindAssets("t:UiDevToolObject")[0]));
         }
         return instance;

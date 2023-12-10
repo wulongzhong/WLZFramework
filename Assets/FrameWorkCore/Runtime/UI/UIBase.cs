@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,18 +9,20 @@ public class UIBase : MonoBehaviour
         Open,
         Close,
     }
+    [HideInInspector]
+    public Canvas canvas;
     private Animator animator;
     private GraphicRaycaster raycaster;
     [HideInInspector]
     public ResLoader resLoader;
 
-    [Header("±¾µØ»¯Ä£¿éÀàĞÍ")]
+    [Header("æœ¬åœ°åŒ–æ¨¡å—ç±»å‹")]
     public ConfigPB.LocalizationModuleType localizationModuleType;
-    [Header("Ä¬ÈÏ°´Å¥ÒôĞ§ID")]
+    [Header("é»˜è®¤æŒ‰é’®éŸ³æ•ˆID")]
     public int btnDefaultClickSoundId = 114;
 
     [Space]
-    [Header("´Ë´¦ÍùÏÂÎª×Ô¶¯Éú³É£¬ÎğÊÖ¶¯±à¼­")]
+    [Header("æ­¤å¤„å¾€ä¸‹ä¸ºè‡ªåŠ¨ç”Ÿæˆï¼Œå‹¿æ‰‹åŠ¨ç¼–è¾‘")]
     [Space]
 
     public TextMeshProUGUI[] arrStaticLocalizationText;
@@ -28,20 +30,23 @@ public class UIBase : MonoBehaviour
     public int[] arrBtnSoundId;
 
     /// <summary>
-    /// ÊÇ·ñÔÚ²¥·Å¿ªÆô¶¯»­ÖĞ
+    /// æ˜¯å¦åœ¨æ’­æ”¾å¼€å¯åŠ¨ç”»ä¸­
     /// </summary>
     public bool BPlayingOpenAnimation {  get; set; }
     /// <summary>
-    /// ÊÇ·ñÔÚ²¥·Å¹Ø±Õ¶¯»­ÖĞ
+    /// æ˜¯å¦åœ¨æ’­æ”¾å…³é—­åŠ¨ç”»ä¸­
     /// </summary>
     public bool BPlayingCloseAnimation { get; set; }
     /// <summary>
-    /// ¶¯»­½áÊøÊ±¼ä ¹«ÓÃ
+    /// åŠ¨ç”»ç»“æŸæ—¶é—´ å…¬ç”¨
     /// </summary>
     public float AnimationEndTime { get; set; }
 
+    protected bool bCloseRecycle = true;
+
     private void Awake()
     {
+        canvas = GetComponent<Canvas>();
         animator = GetComponent<Animator>();
         raycaster = GetComponent<GraphicRaycaster>();
         OnInit();
@@ -54,6 +59,7 @@ public class UIBase : MonoBehaviour
     public virtual void OnOpen(object userData)
     {
         BPlayingOpenAnimation = false;
+        bCloseRecycle = true;
         if (animator != null)
         {
             if (animator.HasState(0, Animator.StringToHash(UIBaseAniType.Open.ToString())))
@@ -75,6 +81,7 @@ public class UIBase : MonoBehaviour
 
     public virtual void OnClose(bool bRecycle = true)
     {
+        bCloseRecycle = bRecycle;
         BPlayingCloseAnimation = false;
         raycaster.enabled = false;
         if (animator != null)
@@ -88,10 +95,10 @@ public class UIBase : MonoBehaviour
         }
     }
 
-    public virtual void OnCloseAnimationEnd(bool bRecycle = true)
+    public virtual void OnCloseAnimationEnd()
     {
         BPlayingCloseAnimation = false;
-        if (!bRecycle)
+        if (!bCloseRecycle)
         {
             OnRealDestory();
         }

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57bfc4ea5aaf784abd75fe815ca5cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   localizationModuleType: 0
   btnDefaultClickSoundId: 114
   arrStaticLocalizationText: []

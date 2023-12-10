@@ -37,16 +37,16 @@ public class UICSCodeGenerate
         Dictionary<Button, int> dicBtnClickSoundId = new();
         CollectMarkGB(dicMember2Object, dicCombi2Object, targetGB, listStaticLocalizationText, dicBtnClickSoundId, false);
         bool bFirstCreate = true;
-        if (Directory.Exists(uiRootMark.codeFolderPath))
+        if (Directory.Exists(UIGlobalCfg.Instance.uiCodeRootPath))
         {
-            if (File.Exists(Path.Combine(uiRootMark.codeFolderPath, $"{targetGB.name}.cs")))
+            if (File.Exists(Path.Combine(UIGlobalCfg.Instance.uiCodeRootPath, $"{targetGB.name}.cs")))
             {
                 bFirstCreate = false;
             }
         }
         else
         {
-            Directory.CreateDirectory(uiRootMark.codeFolderPath);
+            Directory.CreateDirectory(UIGlobalCfg.Instance.uiCodeRootPath);
         }
 
         {
@@ -73,12 +73,12 @@ public class UICSCodeGenerate
             sb.Replace(nameof(strSingleMember), "");
             ClearMark(sb);
             ClearEmptyLine(sb);
-            string path = Path.Combine(uiRootMark.codeFolderPath, $"{targetGB.name}.Member.cs");
+            string path = Path.Combine(UIGlobalCfg.Instance.uiCodeRootPath, $"{targetGB.name}.Member.cs");
             if (File.Exists(path))
             {
                 if (File.ReadAllText(path).Equals(sb.ToString()))
                 {
-                    Debug.Log("����һ����ͬ��CS��������");
+                    Debug.Log("与上一次相同的CS导出代码");
                 }
                 File.Delete(path);
             }
@@ -93,7 +93,7 @@ public class UICSCodeGenerate
             RefreshMainBody(sb, uiRootMark);
             ClearMark(sb);
             ClearEmptyLine(sb);
-            File.WriteAllText(Path.Combine(uiRootMark.codeFolderPath, $"{targetGB.name}.cs"), sb.ToString());
+            File.WriteAllText(Path.Combine(UIGlobalCfg.Instance.uiCodeRootPath, $"{targetGB.name}.cs"), sb.ToString());
         }
 
         AssetDatabase.Refresh();
@@ -234,7 +234,7 @@ public class UICSCodeGenerate
         CollectMarkGB(dicMember2Object, dicCombi2Object, targetGB, listStaticLocalizationText, dicBtnClickSoundId, true);
 
         var uiRootMark = targetGB.GetComponent<UIRootMark>();
-        var scriptPath = Path.Combine(uiRootMark.codeFolderPath, $"{targetGB.name}.cs");
+        var scriptPath = Path.Combine(UIGlobalCfg.Instance.uiCodeRootPath, $"{targetGB.name}.cs");
         MonoScript monoScript = AssetDatabase.LoadAssetAtPath<MonoScript>(scriptPath);
         Type uiType = monoScript.GetClass();
         var uiComp = targetGB.GetComponent(uiType);

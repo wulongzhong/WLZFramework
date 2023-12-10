@@ -5,5 +5,4 @@ using UnityEngine;
 public class UIRootMark : MonoBehaviour
 {
     public string prefabFolderPath;
-    public string codeFolderPath;
 }

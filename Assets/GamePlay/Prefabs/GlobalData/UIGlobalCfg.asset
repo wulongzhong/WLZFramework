@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPrefabRootPath: Assets/GamePlay/Prefabs/UI
   uiCodeRootPath: Assets/GamePlay/Scripts/UI
-  listSortInfo: []
+  listSortInfo:
+  - uiName: Assets/GamePlay/Prefabs/UI\UIMain
+    sortLayer: 100
+    prefabPath: Assets/GamePlay/Prefabs/UI\UIMain.prefab

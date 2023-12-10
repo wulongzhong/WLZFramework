@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -12,13 +12,13 @@ public class UIRootMarkEditor : Editor
 
         UIRootMark uiRootMark = target as UIRootMark;
 
-        if (GUILayout.Button("Éú³ÉCS°æ´úÂë"))
+        if (GUILayout.Button("ç”ŸæˆCSç‰ˆä»£ç "))
         {
             UICSCodeGenerate codeGenerate = new UICSCodeGenerate();
             codeGenerate.Generate(uiRootMark.gameObject);
         }
 
-        if (GUILayout.Button("Éú³ÉCS°æÔ¤ÖÆÌå"))
+        if (GUILayout.Button("ç”ŸæˆCSç‰ˆé¢„åˆ¶ä½“"))
         {
             UICSCodeGenerate.DoCreateUIPf(uiRootMark.gameObject);
         }

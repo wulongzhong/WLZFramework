@@ -1,4 +1,4 @@
-using System.Linq;
+Ôªøusing System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,7 +32,7 @@ public class UIMemberMarkEditor : Editor
     private void DrawMultiple(UIMemberMark uiMemberMark)
     {
         var useGroup = serializedObject.FindProperty(nameof(uiMemberMark.bUseGroup));
-        EditorGUILayout.PropertyField(useGroup, new GUIContent(" π”√◊È"));
+        EditorGUILayout.PropertyField(useGroup, new GUIContent("‰ΩøÁî®ÁªÑ"));
         if (useGroup.boolValue)
         {
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(uiMemberMark.groupName)));
@@ -109,7 +109,7 @@ public class UIMemberMarkMemberInfoEditor : PropertyDrawer
             property.FindPropertyRelative("memberObj").objectReferenceValue = allBev[nowIndex];
         }
         position.y += position.height;
-        EditorGUI.PropertyField(position, property.FindPropertyRelative("memberName"), new GUIContent("◊÷∂Œ√¸√˚"));
+        EditorGUI.PropertyField(position, property.FindPropertyRelative("memberName"), new GUIContent("Â≠óÊÆµÂëΩÂêç"));
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
