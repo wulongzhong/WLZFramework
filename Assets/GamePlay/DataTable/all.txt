@@ -28,266 +28,266 @@
 	"Sound": [
 		{
 			"AssetPath": "Assets/Res/Sound/hallBgm.mp3",
-			"Id": 101,
+			"Id": "101",
 			"IsLoop": true,
 			"IsMusic": true,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/battleBgm.mp3",
-			"Id": 102,
+			"Id": "102",
 			"IsLoop": true,
 			"IsMusic": true,
 			"Volume": 0.6
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/gameFail.mp3",
-			"Id": 103,
+			"Id": "103",
 			"IsLoop": false,
 			"IsMusic": true,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/gameVictory.mp3",
-			"Id": 104,
+			"Id": "104",
 			"IsLoop": false,
 			"IsMusic": true,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/BossBattle.mp3",
-			"Id": 105,
+			"Id": "105",
 			"IsLoop": true,
 			"IsMusic": true,
 			"Volume": 0.5
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/HeroUpStar.mp3",
-			"Id": 106,
+			"Id": "106",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/PetUnlock.mp3",
-			"Id": 107,
+			"Id": "107",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/TalentUnlock.mp3",
-			"Id": 108,
+			"Id": "108",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Gold.mp3",
-			"Id": 109,
+			"Id": "109",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.6
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/BossBattleReady.mp3",
-			"Id": 110,
+			"Id": "110",
 			"IsLoop": true,
 			"IsMusic": true,
 			"Volume": 0.6
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/GetReward.mp3",
-			"Id": 111,
+			"Id": "111",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/PopItem.mp3",
-			"Id": 112,
+			"Id": "112",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.6
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/OpenTreasureChest.mp3",
-			"Id": 113,
+			"Id": "113",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.8
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/ClickButtom.mp3",
-			"Id": 114,
+			"Id": "114",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.6
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/lucky_spin.mp3",
-			"Id": 115,
+			"Id": "115",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/GlockShotSoundEff.mp3",
-			"Id": 201,
+			"Id": "201",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.3
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/electicgunvoice.wav",
-			"Id": 202,
+			"Id": "202",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.1
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/203.mp3",
-			"Id": 203,
+			"Id": "203",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/204.mp3",
-			"Id": 204,
+			"Id": "204",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/205.mp3",
-			"Id": 205,
+			"Id": "205",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/206.mp3",
-			"Id": 206,
+			"Id": "206",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/208.mp3",
-			"Id": 208,
+			"Id": "208",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/209.mp3",
-			"Id": 209,
+			"Id": "209",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/210.wav",
-			"Id": 210,
+			"Id": "210",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/211.wav",
-			"Id": 211,
+			"Id": "211",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/212.mp3",
-			"Id": 212,
+			"Id": "212",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.05
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/213.wav",
-			"Id": 213,
+			"Id": "213",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/214.mp3",
-			"Id": 214,
+			"Id": "214",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/215.mp3",
-			"Id": 215,
+			"Id": "215",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/2151.mp3",
-			"Id": 2151,
+			"Id": "2151",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/GlockShotSoundEff.mp3",
-			"Id": 216,
+			"Id": "216",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.3
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/217.mp3",
-			"Id": 217,
+			"Id": "217",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.5
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/218.mp3",
-			"Id": 218,
+			"Id": "218",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.5
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/219.mp3",
-			"Id": 219,
+			"Id": "219",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/220.wav",
-			"Id": 220,
+			"Id": "220",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/222.wav",
-			"Id": 222,
+			"Id": "222",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.15
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/223.wav",
-			"Id": 223,
+			"Id": "223",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2
 		},
 		{
 			"AssetPath": "Assets/Res/Sound/Weapon/224.mp3",
-			"Id": 224,
+			"Id": "224",
 			"IsLoop": false,
 			"IsMusic": false,
 			"Volume": 0.2

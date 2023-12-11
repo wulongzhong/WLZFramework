@@ -13,12 +13,12 @@ public class DTSound
 {
     public static DTSound Instance;
 
-    public Dictionary<int, ConfigPB.Sound> dicSounds;
+    public Dictionary<string, ConfigPB.Sound> dicSounds;
 
     public DTSound(ConfigPB.Table table)
     {
         Instance = this;
-        dicSounds = new Dictionary<int, ConfigPB.Sound>();
+        dicSounds = new Dictionary<string, ConfigPB.Sound>();
         foreach (var item in table.Sound)
         {
             item.InitCustom();
@@ -26,7 +26,7 @@ public class DTSound
         }
     }
 
-    public ConfigPB.Sound GetSoundById(int id)
+    public ConfigPB.Sound GetSoundById(string id)
     {
         return dicSounds[id];
     }

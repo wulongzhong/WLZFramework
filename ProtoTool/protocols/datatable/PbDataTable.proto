@@ -48,7 +48,7 @@ message Localization
 
 message Sound
 { 
-	int32 Id = 1; // 声音id 
+	string Id = 1; // 声音id 
 	string AssetPath = 2; // 资源路径 
 	bool IsMusic = 3; // 是否背景音乐 
 	bool IsLoop = 4; // 是否循环 

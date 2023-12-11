@@ -36,7 +36,7 @@ namespace ConfigPB {
             "IAEoCRIQCghKYXBhbmVzZRgMIAEoCRINCgVEdXRjaBgNIAEoCRIPCgdTcGFu",
             "aXNoGA4gASgJEhIKClBvcnR1Z3Vlc2UYDyABKAkSDgoGUG9saXNoGBAgASgJ",
             "EhEKCVVrcmFpbmlhbhgRIAEoCRIPCgdSdXNzaWFuGBIgASgJEhIKCkluZG9u",
-            "ZXNpYW4YEyABKAkiVwoFU291bmQSCgoCSWQYASABKAUSEQoJQXNzZXRQYXRo",
+            "ZXNpYW4YEyABKAkiVwoFU291bmQSCgoCSWQYASABKAkSEQoJQXNzZXRQYXRo",
             "GAIgASgJEg8KB0lzTXVzaWMYAyABKAgSDgoGSXNMb29wGAQgASgIEg4KBlZv",
             "bHVtZRgFIAEoAiJ9CgVUYWJsZRImCglHbG9iYWxDZmcYASADKAsyEy5Db25m",
             "aWdQQi5HbG9iYWxDZmcSLAoMTG9jYWxpemF0aW9uGAIgAygLMhYuQ29uZmln",
@@ -1422,16 +1422,16 @@ namespace ConfigPB {
 
     /// <summary>Field number for the "Id" field.</summary>
     public const int IdFieldNumber = 1;
-    private int id_;
+    private string id_ = "";
     /// <summary>
     /// 声音id 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Id {
+    public string Id {
       get { return id_; }
       set {
-        id_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1522,7 +1522,7 @@ namespace ConfigPB {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (AssetPath.Length != 0) hash ^= AssetPath.GetHashCode();
       if (IsMusic != false) hash ^= IsMusic.GetHashCode();
       if (IsLoop != false) hash ^= IsLoop.GetHashCode();
@@ -1545,9 +1545,9 @@ namespace ConfigPB {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (AssetPath.Length != 0) {
         output.WriteRawTag(18);
@@ -1575,9 +1575,9 @@ namespace ConfigPB {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (AssetPath.Length != 0) {
         output.WriteRawTag(18);
@@ -1605,8 +1605,8 @@ namespace ConfigPB {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (AssetPath.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(AssetPath);
@@ -1632,7 +1632,7 @@ namespace ConfigPB {
       if (other == null) {
         return;
       }
-      if (other.Id != 0) {
+      if (other.Id.Length != 0) {
         Id = other.Id;
       }
       if (other.AssetPath.Length != 0) {
@@ -1662,8 +1662,8 @@ namespace ConfigPB {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Id = input.ReadInt32();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -1697,8 +1697,8 @@ namespace ConfigPB {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Id = input.ReadInt32();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {
