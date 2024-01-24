@@ -145,7 +145,7 @@ public class UICSCodeGenerate
 
         while (index < stringBuilder.Length)
         {
-            if (stringBuilder[index] == '\r')
+            if (stringBuilder[index] == '\r' || stringBuilder[index] == '\n')
             {
                 string strTemp = stringBuilder.ToString(lineBeginIndex, index - lineBeginIndex);
                 if (strTemp.Contains(strRegion))
@@ -190,7 +190,7 @@ public class UICSCodeGenerate
         int lineBeginIndex = 0;
         while (index < stringBuilder.Length)
         {
-            if (stringBuilder[index] == '\r')
+            if (stringBuilder[index] == '\r' || stringBuilder[index] == '\n')
             {
                 string strTemp = stringBuilder.ToString(lineBeginIndex, index - lineBeginIndex);
                 if (strTemp.Contains(strRegion) || strTemp.Contains(strEndRegion))
