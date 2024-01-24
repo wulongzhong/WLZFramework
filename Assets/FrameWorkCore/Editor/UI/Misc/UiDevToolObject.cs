@@ -7,7 +7,7 @@ using UnityEditor;
 public class UiDevToolObject : ScriptableObject
 {
     public string uiScenesRootPath = "Assets/GamePlay/Scenes/UI";
-    public string uiPrefabRootPath = "Assets/GamePlay/Prefabs/UI";
+    public string uiItemPrefabRootPath = "Assets/GamePlay/Prefabs/UIItem";
 
     public string uiTempletePath = "Assets/FrameWorkCore/Editor/UI/Templete";
     public string uiTempleteScenePath = "Assets/FrameWorkCore/Editor/UI/Templete/UiTemplete";

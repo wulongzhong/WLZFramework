@@ -46,7 +46,7 @@ public class UiPlace
     private void RefreshUIPrefabRootDir()
     {
         listSelectDir.Clear();
-        listSelectDir.Add(uiDevToolObject.uiPrefabRootPath);
+        listSelectDir.Add(uiDevToolObject.uiItemPrefabRootPath);
     }
 
     GUILayoutOption optDrawOption = GUILayout.Width(128);
