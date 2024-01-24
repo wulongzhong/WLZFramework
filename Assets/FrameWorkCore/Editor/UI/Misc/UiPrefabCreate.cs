@@ -66,7 +66,7 @@ public class UiPrefabCreate
     {
         public string name;
         protected string strTempletePath;
-        protected string strSavePath = "Assets/Art/UiPrefabs/";
+        protected string strSavePath = "Assets/GamePlay/Prefabs/UIItem/";
 
         public CreateInfo()
         {
